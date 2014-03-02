@@ -5,7 +5,23 @@
 
 from scrapy.item import Item, Field
 
-class BusroutesItem(Item):
-    # define the fields for your item here like:
-    # name = Field()
-    pass
+class RouteItem(Item):
+	name = Field()
+	origin = Field()
+	destination = Field()
+	first_up = Field()
+	last_up = Field()
+	first_down = Field()
+	last_down = Field()
+	frequency = Field()
+
+class RouteInfoItem(Item):
+	name = Field()
+	stops = Field()
+	
+class RouteStopItem(Item):
+	number = Field()
+	stop = Field()
+
+class StopItem(Item):
+	name = Field()

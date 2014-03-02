@@ -12,4 +12,11 @@ SPIDER_MODULES = ['busroutes.spiders']
 NEWSPIDER_MODULE = 'busroutes.spiders'
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'busroutes (+http://www.yourdomain.com)'
+USER_AGENT = 'busroutes (+http://www.supercoderz.in)'
+
+ITEM_PIPELINES = {
+	'busroutes.pipelines.PassThroughPipeline':100
+}
+
+DOWNLOAD_TIMEOUT = 300
+DOWNLOAD_DELAY = 1
