@@ -13,6 +13,9 @@ for item in data:
 	stop_names = [stop['stop']['name'] for stop in stops]
 	if stop_names!=[]:
 		graph.add_star(stop_names,route=route_name)
+		graph.add_path(stop_names,route=route_name)
+		stop_names.reverse()
+		graph.add_star(stop_names,route=route_name)
 
 #print nx.shortest_path(graph,'Dilsukhnagar Bus station','Patancheru Bus Stop')
 #print nx.shortest_path(graph,'Patancheru Bus Stop','Hayath Nagar Bus Stop')
@@ -20,7 +23,7 @@ for item in data:
 #	print path
 	
 all_paths =  nx.all_pairs_shortest_path(graph)
-path =  all_paths['Nagole Bus Stop']['Ziaguda']
+path =  all_paths['Chaitanyapuri']['Kothapet Bus Stop']
 for k,v in zip(path,path[1:]):
 	edges = graph[k][v]
 	for edge in edges.values():
