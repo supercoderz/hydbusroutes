@@ -1,3 +1,4 @@
 scrapy
 networkx
 matplotlib
+tornado
