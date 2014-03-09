@@ -32,16 +32,17 @@ class MainHandler(tornado.web.RequestHandler):
 		origin = self.get_argument('origin')
 		destination = self.get_argument('destination')
 		all_paths = nx.all_shortest_paths(graph_builder.graph,origin,destination)
-		result = []
+		result = {}
 		for path in all_paths:
 			route=[]
+			stops = " - ".join(path)
 			for k,v in zip(path,path[1:]):
 				edges = graph_builder.graph[k][v]
 				legs = []
 				for edge in edges.values():
 					legs.append(edge['route'])
 				route.append((k,v,legs))
-			result.append(route)
+			result[stops]=route
 		self.content_type = 'application/json'
 		self.write(json.dumps(result))
 
