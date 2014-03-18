@@ -2,3 +2,4 @@ scrapy
 networkx
 matplotlib
 tornado
+pygeocode
