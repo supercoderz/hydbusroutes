@@ -50,7 +50,7 @@ class HyderabadRouteInfoSpider(Spider):
 		index = response.url.rfind("=")+1
 		route_name = response.url[index:]
 		route_stops = []
-		stops = sel.xpath("//table/tr[@class='noborders']")
+		stops = sel.xpath("//table[@border=1 and @cellpadding=4]/tr[position() > 1]")
 		for stop in stops:
 			stop_data = stop.xpath('.//text()').extract()
 			route_stop = RouteStopItem()
